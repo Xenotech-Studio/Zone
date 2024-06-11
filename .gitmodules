@@ -1,3 +1,3 @@
 [submodule "Assets/VerseeXR"]
 	path = Assets/VerseeXR
-	url = http://gitea.yanghaowen.site:3000/VerseeTech/VerseeXR.git
+	url = git@github.com:Xenotech-Studio/XenoSDK.git
