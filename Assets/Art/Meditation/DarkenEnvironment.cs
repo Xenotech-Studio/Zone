@@ -20,6 +20,8 @@ public class DarkenEnvironment : MonoBehaviour
 
     public Volume BloomPostprocessing;
 
+    public float MaxBloom = 70f;
+
     // Start is called before the first frame update
     public void Darken()
     {
@@ -40,7 +42,7 @@ public class DarkenEnvironment : MonoBehaviour
         
         // set post processing volume bloom intensity to 70
         BloomPostprocessing.profile.TryGet<Bloom>(out Bloom bloom);
-        bloom.intensity.value = 70f;
+        bloom.intensity.value = MaxBloom;
     }
     
     public void Lighten()
@@ -118,7 +120,7 @@ public class DarkenEnvironment : MonoBehaviour
             
             // lerp between 70 and 0
             BloomPostprocessing.profile.TryGet<Bloom>(out Bloom bloom);
-            bloom.intensity.value = 70f * (1f - DarkenTimer / DarkenTimerMax) + 0f * (DarkenTimer / DarkenTimerMax);
+            bloom.intensity.value = MaxBloom * (1f - DarkenTimer / DarkenTimerMax) + 0f * (DarkenTimer / DarkenTimerMax);
 
             
             if (DarkenTimer <= 0f)
@@ -162,7 +164,7 @@ public class DarkenEnvironment : MonoBehaviour
             
             // lerp between 70 and 0
             BloomPostprocessing.profile.TryGet<Bloom>(out Bloom bloom);
-            bloom.intensity.value = 70f * (LightenTimer / LightenTimerMax) + 0f * (1f - LightenTimer / LightenTimerMax);
+            bloom.intensity.value = MaxBloom * (LightenTimer / LightenTimerMax) + 0f * (1f - LightenTimer / LightenTimerMax);
             
             if (LightenTimer <= 0f)
             {
